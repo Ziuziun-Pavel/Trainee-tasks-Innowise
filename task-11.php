@@ -22,9 +22,7 @@ foreach (glob('mazes\maze.txt') as $file) {
         }
     );
 
-    $tStart = microtime(true);
     $path = $helper->findPath($start, $goal);
-    $tEnd = microtime(true);
 
     $mazeStrWithPath = $maze->toString(function ($tile) use ($path) {
         return in_array($tile, $path, true) && !in_array($tile->value, ['A', 'B'])
